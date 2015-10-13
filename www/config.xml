@@ -6,10 +6,10 @@
         id        = "wedding"
         version   = "1.0.0">
 
-    <name>Wedding Design</name>
+    <name>Wedding app Form</name>
 
     <description>
-       Wedding Design 
+      Wedding app Form
     </description>
 
     <author href="http://phonegap.com" email="test@gmail.com">
