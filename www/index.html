@@ -1,356 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+--> 
+<html>
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <link rel="shortcut icon" href="assets/ico/favicon.png">
-
-        <title>Wedding Site</title>
-
-        <!-- Bootstrap core CSS -->
-        <link  type="text/css" href="css/boot-strap_sht-1.css" rel="stylesheet">
-        <!-- Custom styles for this template -->
-        <link type="text/css" href="css/style-sheet-1.css" rel="stylesheet">
-        <link type="text/css" href="css/light.css" rel="stylesheet">
-        <link type="text/css" href="css/magnific-popup-1.css" rel="stylesheet">
-        <link type="text/css" href="css/jquery.vegas-1.css" rel="stylesheet">
-        <link type="text/css" href="css/animate.min.css" rel="stylesheet">
-        <link type="text/css" href="css/font-awesome.min.css" rel="stylesheet">
-        <!-- horizontal scroll-bar css -->
-        <link type="text/css" type="text/css" href="css/main.css" rel="stylesheet">
-        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
-        <script  src="js/modernizr.custom.js"></script> 
-
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       
+        
     </head>
+    
+        <div>
+            
+            <table style="width:100%"  >
+                <thead><tr><th>contactname</th>
+                        <th>contactemail</th>
+                        <th>contactrelation</th>
+                        <th>phone</th>
+                        <th>edit</th>
+                        <th>delete</th>
+                    </tr>
+                </thead>
+                <tbody id="contactajax">
 
-    <body>
-        <nav class="menu" id="theMenu">
-            <div class="menu-wrap">
-                <h1 class="logo"><a href="#">MENU</a></h1>
-                <i class="fa fa-times menu-close"></i>
-                <a href="#top">Home</a>
-                <a href="#wedding_invitation">Wedding invitation</a>
-                <a href="#our_family">event</a>
-                <a href="#photo_gallery">our gallery</a>
-                <a href="#our-blog">Our Contacts</a>
-                <a href="#rsvp">wishes</a>
-                <a href="" onclick="onBackKeyDown1()" id="1exit">Exit</a>
-            </div>
-            <!-- Menu button -->
-            <div id="menuToggle"><i class="fa fa-bars"></i></div>
-        </nav>
-        <!-- MAIN IMAGE SECTION -->
-        <div id="top" class="headerwrap">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">     
-                        <h1><a href="#"><span id="groomajax">
-                                </span> <span style="font-size:36px;">weds</span>  <span id="brideajax">
-                                </span></a>
-                        </h1></div>
-                    <!--				<div class="col-lg-8 col-lg-offset-2">
-                    -->             
-                    <input type="hidden" name="counter" id="counter" >
-                    <div class="banner_timer"><ul><li><span id="days">00</span>Days</li><li><span id="hours">00</span>Hours</li><li><span id="minutes">00</span>Minutes</li><li><span id="seconds">00</span>Seconds</li></ul></div>     
-                    <h2>We inviting you and your family on <span id="inviatedate">
-                        </span></h2>
-                    <div class="spacer"></div>
-                </div><!-- row -->
-            </div><!-- /container -->
-        </div><!-- /headerwrap -->
-        <!-- Wedding invitation SECTION -->
-        <div class="wed-int-prt" id="wedding_invitation">
-            <div class="container">
-                <div class="row">
-                    <h1>Wedding Invitation</h1>
-                    <div id="line">
-                        <img alt="" src="img/line.png"  class="img-responsive"></div>
-                    <div class="col-lg-10">
-                        <p><span>We invite you to join us in celebrating our love.
-                                On this day we will marry the one we laugh with, live for, 
-                                fream with, love. We have chosen to continue our growth through marriage.
-                                Please join</span></p>
-                    </div>
-                    <div class="col-lg-10">  
-                        <div id="Brd-Grm">
-                            <div class="row"> 
-                                <div class="col-lg-5">   
-                                    <div class="grm-pic">
-                                        <span id="groomimg"> 
-                                            <img alt="" src="" class="animated bounceIn visible" data-animation="bounceIn" data-animation-delay="100" class="img-responsive">
-                                        </span>
-                                        <h3><span id="gajax">
-                                            </span></h3>
-                                    </div>
-                                </div><!--/ col-lg-5 -->
-                                <!--------------  grm-pic-1------------->
-                                <div class="col-lg-2">  
-                                    <div class="grm-pic-1">
-                                        <!--<img alt="" src="img/groom.png" class="img-responsive">-->
-                                        <h2>&amp;</h2>
-                                    </div>
-                                </div><!--/ col-lg-2 --> 
-                                <!--------------  grm-pic-2------------->
-                                <div class="col-lg-5">  
-                                    <div class="grm-pic-2">
-                                        <span id="brideimg"> 
-                                            <img alt="" src="" class="animated bounceIn visible" data-animation="bounceIn" data-animation-delay="100" class="img-responsive">
-                                        </span>
-                                        <h3><span id="bajax"></span></h3>
-                                    </div>   
-                                </div><!--/ col-lg-5 --> 
-                            </div><!-- /row -->
-                        </div><!--/ Brd-Grm -->
-                    </div><!-- /col-lg-10 -->   
-                    <div class="clear"></div>
-                    <div class="col-lg-12">
-                        <p><span id="invitationajax"></span></p>
-                    </div><!-- /col-lg-12 -->  
-                    <div class="col-lg-12">
-                        <div class="cnt-prt">
-                            <div class="row">   
-                                <div class="col-lg-2">
-                                    <!--        <div class="fol-us">  
-                                    -->       <p >  Follow US  </p>
-                                    <!--  </div> -->
-                                </div><!-- /col-lg-3 --> 
-                                <div class="col-lg-4" id="socailicon" > 
-                                    <ul data-animation-delay="100" data-animation="fadeIn" class="social animated fadeIn visible">
-                                    </ul>
-                                </div><!-- /col-lg-4 --> 
-                                <div class="col-lg-2">
-                                    <!--   <div class="fol-us-1">-->       
-                                    <p style="margin: auto;"> Mail US : </p>
-                                    <!-- </div> -->  <!-- /fol-us-1 -->  
-                                </div>  <!-- /col-lg-2 --> 
-                                <div class="col-lg-3"> 
-                                    <!--  <div class="soc-ic-1">  -->              
-                                    <p style="margin: auto;"><span id="emailajax"> </p>
-                                    <!--  </div> --> 
-                                </div>   <!-- /col-lg-5 -->    
-                            </div><!--/ row -->       
-                        </div><!-- cnt-prt -->  
-                    </div> <!-- / col-lg-10 -->      
-                </div><!-- /row -->
-            </div><!-- /.container -->
-        </div><!-- /wed-int-prt -->    
+                </tbody>
+
+
+            </table>
+
+        </div>
+   
 
 
 
-        <!-- EVENT -->
-        <div class="services" id="our_family">
-            <div class="container">
-                <div class="row">
-
-                    <h1>Event</h1>
-
-                    <div id="line">
-                        <img alt="" src="img/line.png"  class="img-responsive">
-                    </div>
-
-                </div>
-
-
-                <div class="col-lg-12" style="padding: 0">
-
-                    
-                            <div class="row scroll" id="eventajax">
-                            </div><!-- row -->
-                       
-                </div> <!-- /col-lg-12 -->
-
-            </div><!-- container -->
-        </div><!-- services section -->   
-
-
-        <!-- PORTFOLIO SECTION -->
-        <div class="portfolio" id="photo_gallery">
-            <div class="container">
-                <h1>Our Gallery</h1>
-                <div id="line">
-                    <img alt="" src="img/line.png"  class="img-responsive">
-                </div>
-            </div><!-- container -->      
-
-            <article class="gallery_outer" id="photo_gallery">
-                <div id="container" class="isotom_lant clearfix">
-                    <ul>
-                    </ul>
-                </div>
-            </article>
-        </div><!-- portfolio -->
-
-        <!-- BLOG POSTS -->
-        <div class="blog" id="our-blog">  
-
-            <div class="container">
-                <div class="row1">
-                    <h1>Our Contacts</h1>
-                    <div id="line">
-                        <img alt="" src="img/line.png"  class="img-responsive">
-                    </div>
-                    <div class="col-lg-12" id="contactajax"> 
-                        <div style="margin:0px auto;">
-
-                            <!-- Insert to your webpage where you want to display the carousel -->
-                            <div id="amazingcarousel-container-1">
-                                <div id="amazingcarousel-1">
-                                    <div class="amazingcarousel-list-container">
-                                        <ul class="amazingcarousel-list">
-
-                                        </ul>
-                                        <div class="amazingcarousel-prev"></div>
-                                        <div class="amazingcarousel-next"></div>
-                                    </div>
-                                    <div class="amazingcarousel-nav"></div>
-                                    <div class="amazingcarousel-engine"></div>
-                                </div>
-                            </div>
-                            <!-- End of body section HTML codes -->
-
-                        </div>
-                    </div> <!-- /col-lg-12 -->
-                </div><!-- / row -->
-
-            </div><!-- container -->
-
-
-        </div>  <!-- blog -->
-
-        <!-- WISHES -->
-        <div class="wishes" id="rsvp">
-            <div class="container">
-                <div class="row">
-                    <h1> Your wishes</h1>
-                    <label id="wishesDataSaved"></label>
-                    <div id="line">
-                        <img alt="" src="assets/img/line.png"  class="img-responsive"></div>
-                </div><!-- line -->
-
-                <label id="wishesDataSaved"></label>
-
-                <div data-animation-delay="700" data-animation="fadeInUp" id="contact-form" class="row animated fadeInUp visible">
-                    <div class="col-md-6">
-                        <input type="text"  placeholder="Your Name" value="" id="name"  name="name" class="input_text">
-                        <label   id="name_error" style="display: none">Name is required.</label>
-                    </div>
-                    <div class="col-md-6">
-                        <input type="text" placeholder="Your Email" value="" id="email" name="email" class="input_text">
-                        <label   id="email_error" style="display: none">Email is required.</label>
-                        <label   id="email_errorvalidate" style="display: none">Please enter valid </label>
-
-                    </div>
-                    <div class="col-md-12"   style="float: left;">
-                        <textarea class="textarea_text" placeholder="Send Your valuable wishes to us here..." id="contact-msg" name="message" cols="5" rows="3"></textarea>
-                        <label   id="message_error" style="display: none">message is required.</label>
-
-                    </div>
-
-                    <div class="col-md-6 col-md-offset-3 text-center">
-                        <button id="contact-submit" class="input_button">wish here</button>
-
-                    </div> 
-
-                </div><!-- data-animation -->
-            </div><!-- container -->
-        </div><!-- wishes section --> 
-
-        <!-- FOOTER -->
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-3 text-center">
-                        <p>myweddingicon&copy;2015. All rights reserved</p>     
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- Bootstrap core JavaScript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script type="text/javascript" src="custom_js/Custom.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/jquery.appear.js"></script>
-        <script type="text/javascript" src="js/cordova.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
-        <script type="text/javascript" src="js/masonry.pkgd.min.js"></script>
-        <script type="text/javascript" src="js/classie.js"></script>
-        <script type="text/javascript" src="js/AnimOnScroll.js"></script>
-        <script type="text/javascript" src="js/jquery.magnific-popup.js"></script>
-        <script type="text/javascript" src="js/jquery.vegas.js"></script>
-        <script type="text/javascript" src="js/vegas.js"></script>
-        <script type="text/javascript" src="js/jquery.easytabs.js"></script>
-        <script type="text/javascript" src="js/system.js"></script>
-        <!-- verticall- scroll-bar -->
-        <script type="text/javascript"  src="js/jquery.scrollpanel-0.5.0.js"></script>
-        <script type="text/javascript" src="js/main-1.js"></script> 
-        <!-- horizontal scroll-bar js -->
-        <link rel="stylesheet" type="text/css" href="js/carouselengine/initcarousel-1.css">
-        <script type="text/javascript" src="js/carouselengine/amazingcarousel.js"></script>
-        <script type="text/javascript" src="custom_js/phonegap-1.4.1.js"></script> 
-        <script>
-                    function exitFromApp()
-                    {
-                        navigator.app.exitApp();
-                    }
-        </script>
-
-
-        <script>
-          //  jQuery(window).resize(function () {
-            //    cr_sizeCanvas(jQuery(window).width(), jQuery(window).height());
-          //  });
-
-            document.addEventListener("deviceready", function ()
-            {
-                alert('Device ready');
-                // Create new runtime using the c2canvas 
-                cr_createRuntime("c2canvas");
-
-                document.addEventListener("pause", function () {
-                    cr_setSuspended(true);
-                }, false);
-
-                document.addEventListener("resume", function () {
-                    cr_setSuspended(false);
-                }, false);
-
-                document.addEventListener("backbutton", onBackKeyDown, false);
-
-            }, false);
-
-            function onBackKeyDown() {
-                var confirm_box = confirm("Do you want to exit app?");
-
-                if (confirm_box == true) {
-                    navigator.app.exitApp();
-                    // navigator.device.exitApp(); 
-                    //parent.history.back();
-                } else {
-                    return false;
-                }
-
-
+<style>
+            table, th, td {
+                border: 1px solid black;
             }
-            function onBackKeyDown1() {
+        </style>
 
-                var confirm_box = confirm("Do you want to exit app?");
+<script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script>
+        $(document).ready(function () {
+            var pathname = window.location.pathname;
+ //url = "www.webiste.com/Services/allservices.html"
+ url = pathname.split("/"); 
+ //$appid = url[url.length - 1];
+ //var sessions = $this->session->userdata('app_logged_in');
+ //alert(pathname);
 
-                if (confirm_box == true) {
-                    alert("hi");
-                    localStorage.clear();
-                    navigator.app.exitApp();
-                    return true;
-                } else {
-                    return false;
-                }
+    var appid = url[url.length - 1];
+              // var appid = '50';
+        var base_url = 'http://localhost/myweddingicon/';
+        $.ajax({
+            url: base_url + 'index.php?/ajaxforms/contactformGet/' + appid,
+            //type: "GET",
+            //data: "",
+            dataType: 'json',
+            success: function (wedresponseData) {
+
+
+                var strHtml = '';
+                $.each(wedresponseData, function (index, contactformdata) {
+
+
+                    strHtml += '<tr><td>' + contactformdata.name + '</td><td>' + contactformdata.email + '</td><td>' + contactformdata.phone1 + '</td><td>' + contactformdata.relation + '</td><td><a href="' + base_url + '/index.php/ajaxforms/editcontactdata/' + contactformdata.contactid +' " >edit</a></td><td><a href="' + base_url + '/index.php/ajaxforms/deletecontactdata/' + contactformdata.contactid +' "  >delete</a></td></tr>';
+
+
+                    //var contactName = '', contactEmail = '', phone = '', brideImg = '', email = '', relation = '';
+                    // $.each(wedresponseData, function (index, contactformdata) {
+
+                    // contactName += contactformdata.name;
+
+//alert(contactName);
+                    // return false;
+                    //contactEmail += contactformdata.email;
+                    //  phone += contactformdata.phone1;
+
+                    // relation += contactformdata.relation;
+                    // alert(counter);
+
+
+                    //});
+
+
+                    //alert(groomName);
+                    //alert(brideName);
+                    //$("#nameajax").html(contactName);
+                    // $("#emailajax").html(contactEmail);
+
+                    //$("#phoneajax").html(phone);
+                    // $("#relationajax").html(relation);
+
+
+                });
+
+
+                $("tbody#contactajax").html(strHtml);
             }
 
-        </script> 
-    </body>
-</html>   
+        });
+    });
+
+</script>
+</html>
