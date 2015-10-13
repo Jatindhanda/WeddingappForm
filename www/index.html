@@ -52,8 +52,8 @@ and open the template in the editor.
  //var sessions = $this->session->userdata('app_logged_in');
  //alert(pathname);
 
-    var appid = url[url.length - 1];
-              // var appid = '50';
+    //var appid = url[url.length - 1];
+               var appid = '50';
         var base_url = 'http://localhost/myweddingicon/';
         $.ajax({
             url: base_url + 'index.php?/ajaxforms/contactformGet/' + appid,
@@ -106,4 +106,6 @@ and open the template in the editor.
     });
 
 </script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+ <script type="text/javascript" src="js/cordova.js"></script>
 </html>
