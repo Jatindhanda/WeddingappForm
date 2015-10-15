@@ -48,7 +48,9 @@
                 if ($.trim(email).length > 0 & $.trim(password).length > 0) {
                     $.ajax({
                         type: "POST",
-                        url: 'http://localhost/myweddingicon/index.php?/userloginajaxform/mobile_login',
+                       // url: 'http://localhost/myweddingicon/index.php?/userloginajaxform/mobile_login',
+                       url: 'http://myweddingicon.com/userloginajaxform/mobile_login',
+                       
                         data: {email : email, password : password},
                         crossDomain: true,
                         cache: false,
@@ -57,8 +59,7 @@
                             $("#login").html('Connecting...');
                         },
                         success: function (data) {
-                           //alert(data);
-                           
+                           alert(data);
                             if(data.trim() != ''){
                                 //$.session.clear();
                                  $.session.set('app_id', data);

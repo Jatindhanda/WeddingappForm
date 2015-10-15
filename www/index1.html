@@ -52,13 +52,13 @@ and open the template in the editor.
  //$appid = url[url.length - 1];
  //var sessions = $this->session->userdata('app_logged_in');
  var appid = $.session.get('app_id');
- //alert(appid);
+ alert(appid);
     //$.session.get(‘some key’);
     //var appid = url[url.length - 1];
               //var appid = '50';
-        var base_url = 'http://localhost/myweddingicon/';
+        var base_url = 'http://myweddingicon.com/';
         $.ajax({
-            url: base_url + 'index.php?/ajaxforms/contactformGet/' + appid,
+            url: base_url + 'ajaxforms/contactformGet/' + appid,
             //type: "GET",
             //data: "",
             dataType: 'json',
