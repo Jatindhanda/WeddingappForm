@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+--> 
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       
+        
+    </head>
+    
+        <div>
+            
+            <table style="width:100%"  >
+                <thead><tr><th>contactname</th>
+                        <th>contactemail</th>
+                        <th>contactrelation</th>
+                        <th>phone</th>
+                        <th>edit</th>
+                        <th>delete</th>
+                    </tr>
+                </thead>
+                <tbody id="contactajax">
+
+                </tbody>
+
+
+            </table>
+
+        </div>
+   
+
+
+
+<style>
+            table, th, td {
+                border: 1px solid black;
+            }
+        </style>
+
+<script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script>
+        $(document).ready(function () {
+            
+            var pathname = window.location.pathname;
+ //url = "www.webiste.com/Services/allservices.html"
+ url = pathname.split("/"); 
+ //$appid = url[url.length - 1];
+ //var sessions = $this->session->userdata('app_logged_in');
+ var appid = $.session.get('app_id');
+ //alert(appid);
+    //$.session.get(‘some key’);
+    //var appid = url[url.length - 1];
+              //var appid = '50';
+        var base_url = 'http://localhost/myweddingicon/';
+        $.ajax({
+            url: base_url + 'index.php?/ajaxforms/contactformGet/' + appid,
+            //type: "GET",
+            //data: "",
+            dataType: 'json',
+            success: function (wedresponseData) {
+
+
+                var strHtml = '';
+                $.each(wedresponseData, function (index, contactformdata) {
+
+
+                    strHtml += '<tr><td>' + contactformdata.name + '</td><td>' + contactformdata.email + '</td><td>' + contactformdata.phone1 + '</td><td>' + contactformdata.relation + '</td><td><a href="' + base_url + '/index.php/ajaxforms/editcontactdata/' + contactformdata.contactid +' " >edit</a></td><td><a href="' + base_url + '/index.php/ajaxforms/deletecontactdata/' + contactformdata.contactid +' "  >delete</a></td></tr>';
+
+
+                    //var contactName = '', contactEmail = '', phone = '', brideImg = '', email = '', relation = '';
+                    // $.each(wedresponseData, function (index, contactformdata) {
+
+                    // contactName += contactformdata.name;
+
+//alert(contactName);
+                    // return false;
+                    //contactEmail += contactformdata.email;
+                    //  phone += contactformdata.phone1;
+
+                    // relation += contactformdata.relation;
+                    // alert(counter);
+
+
+                    //});
+
+
+                    //alert(groomName);
+                    //alert(brideName);
+                    //$("#nameajax").html(contactName);
+                    // $("#emailajax").html(contactEmail);
+
+                    //$("#phoneajax").html(phone);
+                    // $("#relationajax").html(relation);
+
+
+                });
+
+
+                $("tbody#contactajax").html(strHtml);
+            }
+
+        });
+    });
+
+</script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+ <script type="text/javascript" src="js/jquerysession.js"></script>
+ <script type="text/javascript" src="js/phonegap-1.4.1.js"></script>
+</html>

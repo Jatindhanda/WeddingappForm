@@ -1,112 +1,81 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
---> 
 <html>
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-       
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
+        <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquerysession.js"></script>
         
+        <title>Login</title>
+        <script type="text/javascript">
+            var url = window.location.pathname;
+            var filename = url.substring(url.lastIndexOf('/') + 1);
+            if (localStorage.login == "true" && filename == 'login.html') {
+                window.location.href = "index.html";
+            }
+            else if (localStorage.login == "false" && filename != 'login.html') {
+                window.location.href = "login.html";
+            }
+        </script>
     </head>
-    
-        <div>
-            
-            <table style="width:100%"  >
-                <thead><tr><th>contactname</th>
-                        <th>contactemail</th>
-                        <th>contactrelation</th>
-                        <th>phone</th>
-                        <th>edit</th>
-                        <th>delete</th>
-                    </tr>
-                </thead>
-                <tbody id="contactajax">
+    <body>
 
-                </tbody>
-
-
-            </table>
-
+        <div class="padding" style="margin-top:55px;">
+            <label class="item-input">
+                <span class="input-label">Email</span>
+                <input type="email" placeholder="email@domain.com" id="email">
+            </label>
+            <label class="item-input">
+                <span class="input-label">Password</span>
+                <input type="password" placeholder="password" id="password">
+            </label>
+            <label class="item-input">
+                <button class="button button-block button-positive" id="login">Login</button>
+            </label>
         </div>
-   
-
-
-
-<style>
-            table, th, td {
-                border: 1px solid black;
-            }
-        </style>
-
-<script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-<script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jq.js"></script>
+        <script type="text/javascript" src="js/auth.js"></script>
+        <script>
         $(document).ready(function () {
-            var pathname = window.location.pathname;
- //url = "www.webiste.com/Services/allservices.html"
- url = pathname.split("/"); 
- //$appid = url[url.length - 1];
- //var sessions = $this->session->userdata('app_logged_in');
- //alert(pathname);
-
-    //var appid = url[url.length - 1];
-              var appid = '50';
-        var base_url = 'http://localhost/myweddingicon/';
-        $.ajax({
-            url: base_url + 'index.php?/ajaxforms/contactformGet/' + appid,
-            //type: "GET",
-            //data: "",
-            dataType: 'json',
-            success: function (wedresponseData) {
-
-
-                var strHtml = '';
-                $.each(wedresponseData, function (index, contactformdata) {
-
-
-                    strHtml += '<tr><td>' + contactformdata.name + '</td><td>' + contactformdata.email + '</td><td>' + contactformdata.phone1 + '</td><td>' + contactformdata.relation + '</td><td><a href="' + base_url + '/index.php/ajaxforms/editcontactdata/' + contactformdata.contactid +' " >edit</a></td><td><a href="' + base_url + '/index.php/ajaxforms/deletecontactdata/' + contactformdata.contactid +' "  >delete</a></td></tr>';
-
-
-                    //var contactName = '', contactEmail = '', phone = '', brideImg = '', email = '', relation = '';
-                    // $.each(wedresponseData, function (index, contactformdata) {
-
-                    // contactName += contactformdata.name;
-
-//alert(contactName);
-                    // return false;
-                    //contactEmail += contactformdata.email;
-                    //  phone += contactformdata.phone1;
-
-                    // relation += contactformdata.relation;
-                    // alert(counter);
-
-
-                    //});
-
-
-                    //alert(groomName);
-                    //alert(brideName);
-                    //$("#nameajax").html(contactName);
-                    // $("#emailajax").html(contactEmail);
-
-                    //$("#phoneajax").html(phone);
-                    // $("#relationajax").html(relation);
-
-
-                });
-
-
-                $("tbody#contactajax").html(strHtml);
-            }
-
+            $("#login").click(function () {
+                var email = $("#email").val();
+                var password = $("#password").val();
+                if ($.trim(email).length > 0 & $.trim(password).length > 0) {
+                    $.ajax({
+                        type: "POST",
+                        url: 'http://localhost/myweddingicon/index.php?/userloginajaxform/mobile_login',
+                        data: {email : email, password : password},
+                        crossDomain: true,
+                        cache: false,
+                        dataType: 'json',
+                        beforeSend: function () {
+                            $("#login").html('Connecting...');
+                        },
+                        success: function (data) {
+                           //alert(data);
+                           
+                            if(data.trim() != ''){
+                                //$.session.clear();
+                                 $.session.set('app_id', data);
+                                 window.location.href = "index1.html";
+                                 //alert($.session.get('app_id'));
+                            }else{
+                                alert('you are not authorized');
+                            }
+                          
+                        }
+                    });
+                }else{
+                    alert('Please enter valid username and password !');
+                }
+                return false;
+            });
         });
-    });
-
-</script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
- 
- <script type="text/javascript" src="js/phonegap-1.4.1.js"></script>
+    </script>
+    </body>
 </html>
