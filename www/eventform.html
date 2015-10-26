@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <!--<link rel="stylesheet" type="text/css" href="css/ionic.min.css" />-->
+        <link href="css_web/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+	<!-- Font Awesome -->
+	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	
+    <!-- Animation -->
+	<link href="css_web/animate.css" rel="stylesheet" />
+	
+    <!-- MyTemplate CSS -->
+    <link href="css_web/style.css" rel="stylesheet">
+        <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        
+        <!--<script type="text/javascript" src="http://www.myweddingicon.com/js/jquerysession.js"></script>-->
+       <script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.easing.min.js"></script>	
+	<script src="js/jquery.scrollTo.js"></script>
+	<script src="js/wow.min.js"></script>			<!-- Reveal animation when you scroll by wow.js. It need animate.css library -->
+	<!-- Custom Theme JavaScript -->
+	<script src="js/custom.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        
+        <title>Login</title>
+        <script type="text/javascript">
+            var url = window.location.pathname;
+            var filename = url.substring(url.lastIndexOf('/') + 1);
+            if (localStorage.login == "true" && filename == 'login.html') {
+                window.location.href = "index1.html";
+            }
+            else if (localStorage.login == "false" && filename != 'login.html') {
+                window.location.href = "index1.html";
+            }
+        </script>
+    </head>
+    <body>
+    <header>
+		<nav class="navbar navbar-default navbar-fixed-top fadeIn" role="navigation">
+			<div class="container">
+				
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#dropdown-box-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<div class="navbar-brand">
+						<a href="#">My Template</a>
+					</div>
+				</div>
+				
+				<!-- Collect the nav links and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-right" id="dropdown-box-1">
+					
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#home">HOME</a></li>
+                                                <li class="dropdown" role="presentation">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+							  Contacts <span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu bullet fadeIn" role="menu">
+							 <!-- <li><a href="contactform">Contact Form</a></li>-->
+							  <li><a href="index1.html">View contact data</a></li>
+							  
+							</ul>
+						</li>
+                                                
+						<li class="dropdown" role="presentation">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+							  Events <span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu bullet fadeIn" role="menu">
+							  <li><a href="eventform.html">Event Form</a></li>
+							  <li><a href="eventdata.html">View Event data</a></li>
+							</ul>
+						</li>
+						
+                                                <li class="dropdown" role="presentation">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+							  Gallery <span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu bullet fadeIn" role="menu">
+							  <li><a href="galleryform.html">Gallery Form</a></li>
+							  <li><a href="gallerydata.html">View gallery data</a></li>
+							  
+							</ul>
+						</li>
+						<li class="dropdown" role="presentation">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+							  User <span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu bullet fadeIn" role="menu">
+							  <li><a href="#first">User Form</a></li>
+							  <li><a href="userdata.html">View User data</a></li>
+							  
+							</ul>
+						</li>
+					</ul>
+					
+				</div>
+				
+			</div> <!-- /.container -->
+		</nav> <!-- /.nav -->
+	</header>
+    <div style="clear:both; margin-top:50px;"></div>
+        <div class="container">    
+        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Event form</div>
+                       
+                    </div>     
+
+                <div style="padding-top:30px" class="panel-body" >
+
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                             <div style="margin-bottom: 5px" class="input-group">
+                                 
+                             </div>  
+                                    <div style="margin-bottom: 5px" class="input-group">
+                                       <label for = "name">Event name</label>
+                                        <input id="eventname" type="text" class="form-control" name="username" value="" >                                       
+                                    </div>
+                                
+                                    <div style="margin-bottom:5px" class="input-group">
+                                        <label for = "name">Event date</label>
+                                        <input id="eventdate" type="text" class="form-control" name="relation" value="" > 
+                                    </div>
+                        
+                                    <div style="margin-bottom: 5px" class="input-group">
+                                        <label for = "name">Event time</label>
+                                        <input id="eventtime" type="email" class="form-control" name="email" value="" > 
+                                    </div>
+                        
+                                    <div style="margin-bottom: 5px" class="input-group">
+                                        <label for = "contactphone">Event street</label>
+                                        <input id="street" type="text" class="form-control" name="phone" value="" > 
+                                    </div>
+                                    <div style="margin-bottom: 5px" class="input-group">
+                                        <label for = "contactphone">Event city</label>
+                                        <input id="city" type="text" class="form-control" name="phone" value="" > 
+                                    </div>
+                        
+
+                                    <div class="col-sm-12 controls" style="padding-left:0px !important;">
+                                       <button id="Submit"  class="btn btn-success">submit</button>
+                                    </div>
+                                </div>
+                          
+                </div>                     
+            </div>  
+        </div>
+        </div>
+        
+       
+        <script>
+        $(document).ready(function () {
+            
+            var appid = $.session.get('app_id');
+           // alert(appid);
+            $("#Submit").click(function () {
+               // alert('hi');
+                    var eventname = $("#eventname").val();
+                var eventdate = $("#eventdate").val();
+                var eventtime = $("#eventtime").val();
+                var street = $("#street").val();
+                var city = $("#city").val();
+              
+                    $.ajax({
+                        type: "POST",
+                        url: 'http://www.myweddingicon.com/ajaxforms/saveeventformdata/'+ appid,
+                      // url: 'http://myweddingicon.com/userloginajaxform/mobile_login',
+                       
+                         data: {name: eventname, date: eventdate, time: eventtime, street: street, city: city},
+                        crossDomain: true,
+                        cache: false,
+                        dataType: 'json',
+                       
+                        beforeSend: function () {
+                            $("#Submit").html('Submiting...');
+                        },
+                        success: function (data) {
+                         // alert(data);
+                         var success = 'data submit successfully';
+                         //$.session.set('submitdata', success);
+                            if(data != ''){
+                                //$.session.clear();
+                                 $.session.set('submitdata', success);
+                                alert($.session.get('submitdata'));
+                                 window.location.href = "eventform.html";
+                                 //alert($.session.get('app_id'));
+                            }else{
+                                alert('you are not authorized');
+                            }
+                          
+                        }
+                    });
+                
+                return false;
+            });
+        });
+    </script>
+    <script type="text/javascript" src="js/jquerysession.js"></script>
+    </body>
+</html>

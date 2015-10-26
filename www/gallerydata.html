@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+--> 
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       <link href="css_web/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="css_web/animate.css" rel="stylesheet" />
+	<link href="css_web/style.css" rel="stylesheet">
+        <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        <script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.easing.min.js"></script>	
+	<script src="js/jquery.scrollTo.js"></script>
+	<!--<script src="js/wow.min.js"></script>			
+		<script src="js/custom.js"></script>-->
+        
+    </head>
+    <header>
+		<nav class="navbar navbar-default navbar-fixed-top fadeIn" role="navigation">
+			<div class="container">
+				
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#dropdown-box-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<div class="navbar-brand">
+						<a href="#">My Template</a>
+					</div>
+				</div>
+				
+				<!-- Collect the nav links and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-right" id="dropdown-box-1">
+					
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#home">HOME</a></li>
+                                                <li class="dropdown" role="presentation">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+							  Contacts <span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu bullet fadeIn" role="menu">
+							  <li><a href="contactformdata.html">Contact Form</a></li>
+							  <li><a href="index1.html">View contact data</a></li>
+							  
+							</ul>
+						</li>
+                                                
+						<li class="dropdown" role="presentation">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+							  Events <span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu bullet fadeIn" role="menu">
+							  <li><a href="eventform.html">Event Form</a></li>
+							  <li><a href="eventdata.html">View Event data</a></li>
+							</ul>
+						</li>
+						
+                                                <li class="dropdown" role="presentation">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+							  Gallery <span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu bullet fadeIn" role="menu">
+							  <li><a href="galleryform.html">Gallery Form</a></li>
+							  <li><a href="gallerydata.html">View gallery data</a></li>
+							  
+							</ul>
+						</li>
+						<li class="dropdown" role="presentation">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+							  User <span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu bullet fadeIn" role="menu">
+							  <li><a href="#first">User Form</a></li>
+							  <li><a href="userdata.html">View User data</a></li>
+							  
+							</ul>
+						</li>
+					</ul>
+					
+				</div>
+				
+			</div> <!-- /.container -->
+		</nav> <!-- /.nav -->
+	</header>
+    <div style="clear:both; margin-top:50px;"></div>
+    <div class="container">
+	<div class="row">
+		
+        
+        <div class="col-md-12">
+        <h4>Record for app Gallery</h4>
+        <div class="table-responsive">
+
+                
+              <table id="mytable" class="table table-bordred table-striped">
+                   
+                   <thead><tr><th>galleries</th>
+                        
+                        <th>edit</th>
+                        <th>delete</th>
+                    </tr>
+                </thead>
+                <tbody id="galleryajax">
+
+                </tbody>
+
+
+            </table>
+        </div>
+        </div>
+             </div>
+        </div>
+        
+   
+
+
+    
+<style>
+            table, th, td {
+                border: 1px solid black;
+            }
+        </style>
+
+<script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script>
+        $(document).ready(function () {
+            
+            var pathname = window.location.pathname;
+ //url = "www.webiste.com/Services/allservices.html"
+ //url = pathname.split("/"); 
+ //$appid = url[url.length - 1];
+ //var sessions = $this->session->userdata('app_logged_in');
+ var appid = $.session.get('app_id');
+//alert(appid);
+    //$.session.get(‘some key’);
+    //var appid = url[url.length - 1];
+              //var appid = '50';
+        var base_url = 'http://www.myweddingicon.com/';
+       $.ajax({
+            url: base_url + 'ajaxforms/galleryformGet/' + appid,
+            //type: "GET",
+            //data: "",
+            dataType: 'json',
+            success: function (wedresponseData) {
+
+                // alert(wedresponseData);
+                var strHtml = '';
+                $.each(wedresponseData, function (index, galleryformdata) {
+
+                    strHtml += '<tr><td>' + galleryformdata.galleries + '</td><td><a href="editgallery.html?/'+ galleryformdata.galleryid +' " >edit</a></td><td><a  onclick="delete_function(' + galleryformdata.galleryid +')" >delete</a></td></tr>';
+
+                });
+
+
+                $("tbody#galleryajax").html(strHtml);
+            }
+
+        });
+    });
+
+</script>
+<script type="text/javascript">
+function delete_function(a)
+{
+    var base_url = 'http://www.myweddingicon.com/';
+  
+    $.ajax({  
+        type: "POST",  
+        url: base_url + 'ajaxforms/deletegallerydata/' + a, 
+       
+        success: function(response)
+        {
+            //$("#response").html(response);
+             window.location.href = "gallerydata.html";
+        }
+    });
+    }
+</script>
+<script type="text/javascript">
+function abc(a){
+    alert(a);
+}
+</script>
+   
+    <script type="text/javascript" src="js/jquerysession.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+ <!--<script type="text/javascript" src="js/jquerysession.js"></script>-->
+ <script type="text/javascript" src="http://www.myweddingicon.com/js/jquerysession.js"></script>
+ <script type="text/javascript" src="js/phonegap-1.4.1.js"></script>
+</html>

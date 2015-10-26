@@ -6,52 +6,94 @@
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
+        <!--<link rel="stylesheet" type="text/css" href="css/ionic.min.css" />-->
+        <link href="css_web/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+	<!-- Font Awesome -->
+	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	
+    <!-- Animation -->
+	<link href="css_web/animate.css" rel="stylesheet" />
+	
+    <!-- MyTemplate CSS -->
+    <link href="css_web/style.css" rel="stylesheet">
         <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-        <script type="text/javascript" src="js/jquerysession.js"></script>
-        <script type="text/javascript" src="http://www.myweddingicon.com/js/jquerysession.js"></script>
         
+       <script type="text/javascript" src="http://www.myweddingicon.com/js/jquerysession.js"></script>
+       <script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.easing.min.js"></script>	
+	<script src="js/jquery.scrollTo.js"></script>
+	<!--<script src="js/wow.min.js"></script>-->			<!-- Reveal animation when you scroll by wow.js. It need animate.css library -->
+	<!-- Custom Theme JavaScript
+	<script src="js/custom.js"></script> -->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
         
         <title>Login</title>
         <script type="text/javascript">
             var url = window.location.pathname;
             var filename = url.substring(url.lastIndexOf('/') + 1);
             if (localStorage.login == "true" && filename == 'login.html') {
-                window.location.href = "index.html";
+                window.location.href = "index1.html";
             }
             else if (localStorage.login == "false" && filename != 'login.html') {
-                window.location.href = "login.html";
+                window.location.href = "index1.html";
             }
         </script>
     </head>
     <body>
 
-        <div class="padding" style="margin-top:55px;">
-            <label class="item-input">
-                <span class="input-label">Email</span>
-                <input type="email" placeholder="email@domain.com" id="email">
-            </label>
-            <label class="item-input">
-                <span class="input-label">Password</span>
-                <input type="password" placeholder="password" id="password">
-            </label>
-            <label class="item-input">
-                <button class="button button-block button-positive" id="login">Login</button>
-            </label>
+        <div class="container">    
+        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Sign In</div>
+                       
+                    </div>     
+
+                <div style="padding-top:30px" class="panel-body" >
+
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                            
+                       
+                                    
+                                    <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input id="email" type="email" class="form-control" name="username" value="" placeholder="email">                                       
+                                    </div>
+                                
+                                    <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <input type="password" placeholder="password" id="password" class="form-control" name="password" >
+                                    </div>
+                                <div style="margin-top:10px" class="form-group">
+                                    <!-- Button -->
+
+                                    <div class="col-sm-12 controls" style="padding-left:0px !important;">
+                                       <button id="login"  class="btn btn-success">Login</button>
+                                    </div>
+                                </div>
+                          
+                </div>                     
+            </div>  
         </div>
-        
+        </div>
         <script>
         $(document).ready(function () {
             $("#login").click(function () {
+               // alert('hi');
+                var base_url = 'http://localhost/myweddingicon/';
                 var email = $("#email").val();
                 var password = $("#password").val();
                 if ($.trim(email).length > 0 & $.trim(password).length > 0) {
                     $.ajax({
                         type: "POST",
-                       // url: 'http://localhost/myweddingicon/index.php?/userloginajaxform/mobile_login',
+                        
+                        //url: base_url + 'index.php?/userloginajaxform/mobile_login',
                        url: 'http://myweddingicon.com/userloginajaxform/mobile_login',
                        
                         data: {email : email, password : password},
+                        contentType: "application/x-www-form-urlencoded",
                         crossDomain: true,
                         cache: false,
                         dataType: 'json',
@@ -59,10 +101,11 @@
                             $("#login").html('Connecting...');
                         },
                         success: function (data) {
-                           alert(data);
-                            if(data.trim() != ''){
+                          //alert(data);
+                            if(data != ''){
                                 //$.session.clear();
                                  $.session.set('app_id', data);
+                                 //alert($.session.get('app_id'));
                                  window.location.href = "index1.html";
                                  //alert($.session.get('app_id'));
                             }else{
@@ -78,5 +121,6 @@
             });
         });
     </script>
+    <script type="text/javascript" src="js/jquerysession.js"></script>
     </body>
 </html>
