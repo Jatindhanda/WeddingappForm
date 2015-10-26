@@ -44,13 +44,13 @@ and open the template in the editor.
 				<div class="collapse navbar-collapse navbar-right" id="dropdown-box-1">
 					
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="#home">HOME</a></li>
+						
                                                 <li class="dropdown" role="presentation">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
 							  Contacts <span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu bullet fadeIn" role="menu">
-							  <li><a href="contactform.html">Contact Form</a></li>
+							  <!--!<li><a href="contactform.html">Contact Form</a></li>-->
 							  <li><a href="index1.html">View contact data</a></li>
 							  
 							</ul>
@@ -86,6 +86,7 @@ and open the template in the editor.
 							  
 							</ul>
 						</li>
+                                                <li  class="active"><a id="logout">Logout</a></li>
 					</ul>
 					
 				</div>
@@ -93,4 +94,21 @@ and open the template in the editor.
 			</div> <!-- /.container -->
 		</nav> <!-- /.nav -->
 	</header>
+    <script>
+        $(document).ready(function () {
+                $("#logout").click(function() {
+                    //alert('hi'); return false;
+                     var base_url = 'http://www.myweddingicon.com/';
+            $.ajax({
+                url: base_url + 'userloginajaxform/logout',
+                success: function(data){
+                    //alert(data);
+                    window.location.href = "index.html";
+                }
+            });
+        });
+                      
+          
+    });
+</script>
 </html>

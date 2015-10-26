@@ -61,9 +61,9 @@
                       
             var appid = $.session.get('app_id');
 
-             var base_url = 'http://localhost/myweddingicon/';
+             var base_url = 'http://www.myweddingicon.com/';
        $.ajax({
-            url: base_url + 'index.php?/ajaxforms/userformGet/' + appid,
+            url: base_url + 'ajaxforms/userformGet/' + appid,
             //type: "GET",
             //data: "",
             dataType: 'json',
@@ -74,7 +74,7 @@
                 $.each(wedresponseData, function (index, userformdata) {
 
 
-                    strHtml += '<tr><td>' + userformdata.bride + '</td><td>' + userformdata.brideimage + '</td><td>' + userformdata.groom + '</td><td>'+ userformdata.groomimage + '</td><td>'+ userformdata.venue + '</td><td>'+ userformdata.countdate + '</td><td>' + userformdata.counttime + '</td><td>'+ userformdata.invitation + '</td><td><a href="edituserdata.html?/' + userformdata.appid +' " >edit</a></td><td><a href="' + base_url + '/index.php/ajaxforms/deleteuserdata/' + userformdata.appid +' "  >delete</a></td></tr>';
+                    strHtml += '<tr><td>' + userformdata.bride + '</td><td>' + userformdata.brideimage + '</td><td>' + userformdata.groom + '</td><td>'+ userformdata.groomimage + '</td><td>'+ userformdata.venue + '</td><td>'+ userformdata.countdate + '</td><td>' + userformdata.counttime + '</td><td>'+ userformdata.invitation + '</td><td><a href="edituserdata.html?/' + userformdata.appid +' " >edit</a></td><td><a href="' + base_url + '/ajaxforms/deleteuserdata/' + userformdata.appid +' "  >delete</a></td></tr>';
 
 
                 });
