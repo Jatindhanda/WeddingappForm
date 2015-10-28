@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
@@ -84,18 +83,19 @@
                // alert('hi');
                $.session.clear();
                 //alert($.session.get('app_id'));
-                var base_url = 'http://localhost/myweddingicon/';
+               // var base_url = 'http://localhost/myweddingicon/';
+              var base_url = 'http://myweddingicon.com/';
                 var email = $("#email").val();
                 var password = $("#password").val();
                 if ($.trim(email).length > 0 & $.trim(password).length > 0) {
                     $.ajax({
                         type: "POST",
                         
-                        //url: base_url + 'index.php?/userloginajaxform/mobile_login',
-                       url: 'http://myweddingicon.com/userloginajaxform/mobile_login',
+                        url: base_url + 'userloginajaxform/mobile_login',
+                      // url: 'http://myweddingicon.com/userloginajaxform/mobile_login',
                        
                         data: {email : email, password : password},
-                        contentType: "application/x-www-form-urlencoded",
+                        //contentType: "application/x-www-form-urlencoded",
                         crossDomain: true,
                         cache: false,
                         dataType: 'json',

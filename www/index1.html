@@ -2,9 +2,12 @@
 <head>
 <title></title>
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<style>
+            table, th, td {
+                border: 1px solid black;
+            }
+        </style>
 </head>
-<body> 
-   
  <div id="header"></div>
     <div style="clear:both; margin-top:50px;"></div>
     <div class="container">
@@ -36,35 +39,24 @@
         </div>
              </div>
         </div>
-        
-   
-
-
-    
-<style>
-            table, th, td {
-                border: 1px solid black;
-            }
-        </style>
-
-<script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <script>
         $(document).ready(function () {
             
-            var pathname = window.location.pathname;
+           // var pathname = window.location.pathname;
  //url = "www.webiste.com/Services/allservices.html"
  //url = pathname.split("/"); 
  //$appid = url[url.length - 1];
  //var sessions = $this->session->userdata('app_logged_in');
- var appid = $.session.get('app_id');
+             var appid = $.session.get('app_id');
 //alert(appid);
     //$.session.get(‘some key’);
     //var appid = url[url.length - 1];
               //var appid = '50';
+             
         var base_url = 'http://www.myweddingicon.com';
         $.ajax({
             url: base_url + '/ajaxforms/contactformGet/' + appid,
-            //type: "GET",
+             type: "POST",
             //data: "",
             dataType: 'json',
             success: function (wedresponseData) {
@@ -75,6 +67,8 @@
                     strHtml += '<tr class="action-delete"><td>' + contactformdata.name + '</td><td>' + contactformdata.email + '</td><td>' + contactformdata.phone1 + '</td><td>' + contactformdata.relation + '</td><td><a href="editcontactdata.html?/'+contactformdata.contactid +'" value="'+ contactformdata.contactid +'" class="editcontact"  >edit</a></td><td><a class="deleterecord"  onclick="delete_function(' + contactformdata.contactid +')" >delete</a></td></tr>';
                 });
                 $("tbody#contactajax").html(strHtml);
+                
+                
             }
 });
         
@@ -87,11 +81,11 @@
 <script type="text/javascript">
 function delete_function(a)
 {
-    var base_url = 'http://localhost/myweddingicon/';
+    var base_url = 'http://www.myweddingicon.com/';
   
     $.ajax({  
         type: "POST",  
-        url: base_url + 'index.php?/ajaxforms/deletecontactdata/' + a, 
+        url: base_url + 'ajaxforms/deletecontactdata/' + a, 
        
         success: function(response)
         {
@@ -107,7 +101,7 @@ function delete_function(a)
 </script> 
    
 <script type="text/javascript" src="js/jquerysession.js"></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<!--<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>-->
  <!--<script type="text/javascript" src="js/jquerysession.js"></script>-->
  <script type="text/javascript" src="http://www.myweddingicon.com/js/jquerysession.js"></script>
  <script type="text/javascript" src="js/phonegap-1.4.1.js"></script>

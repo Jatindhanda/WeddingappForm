@@ -148,7 +148,7 @@ and open the template in the editor.
         var base_url = 'http://www.myweddingicon.com/';
        $.ajax({
             url: base_url + 'ajaxforms/galleryformGet/' + appid,
-            //type: "GET",
+            type: "POST",
             //data: "",
             dataType: 'json',
             success: function (wedresponseData) {
