@@ -4,6 +4,7 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+       <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <!--<link rel="stylesheet" type="text/css" href="css/ionic.min.css" />-->
         <link href="css_web/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -23,8 +24,8 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.easing.min.js"></script>	
 	<script src="js/jquery.scrollTo.js"></script>
-        <script type="text/javascript" src="js/cordova.js"></script>
-        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js">
+        <!--<script type="text/javascript" src="js/cordova.js"></script>-->
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	<!--<script src="js/wow.min.js"></script>-->			<!-- Reveal animation when you scroll by wow.js. It need animate.css library -->
 	<!-- Custom Theme JavaScript
 	<script src="js/custom.js"></script> -->
@@ -95,11 +96,11 @@
                         
                         url: base_url + 'userloginajaxform/mobile_login',
                       // url: 'http://myweddingicon.com/userloginajaxform/mobile_login',
-                       
-                        data: {email : email, password : password},
+                       //JSON.stringify(
+                       data: {email : email, password : password},
                         //contentType: "application/x-www-form-urlencoded",
                         crossDomain: true,
-                       cache: false,
+                        cache: false,
                         dataType: 'json',
                         beforeSend: function () {
                             $("#login").html('Connecting...');
