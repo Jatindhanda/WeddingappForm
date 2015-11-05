@@ -144,9 +144,11 @@ $(document).ready(function (e) {
                     //(test);
                     //$('#galleryimg').attr("src", test);
                // $("#targetLayer").html(data);
+               var base_url = 'http://www.myweddingicon.com/';
 		$.ajax({
-        	 url: 'http://localhost/myweddingicon/index.php?/ajaxforms/savegalleryformdata/'+ appid,
+        	url: base_url + 'ajaxforms/savegalleryformdata/'+ appid,
 			type: "POST",
+                        crossDomain: true,
 			data:  new FormData(this),
 			contentType: false,
     	                 cache: false,
@@ -158,7 +160,7 @@ $(document).ready(function (e) {
                               $.session.set('submitdata', success);
                                 alert($.session.get('submitdata'));
                           // $("#targetLayer").html(data);
-                           window.location.href = "galleryform.html";
+                           window.location.href = "gallerydata.html";
                             } else{
                                 alert('you are not authorized');
                             }
