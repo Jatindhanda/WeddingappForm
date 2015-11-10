@@ -53,6 +53,7 @@
 
     <access origin="http://myweddingicon.com/" subdomains="true" />
  <plugin name="cordova-plugin-whitelist" version="1" />
+ <gap:plugin name="com.indigoway.cordova.whitelist.whitelistplugin" version="1.1.1" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
